@@ -1,0 +1,24 @@
+# Netlify Configuration File
+
+[build]
+  command = "cd frontend && npm run build"
+  publish = "frontend/build"
+  node_version = "18.17.0"
+
+[build.environment]
+  # Add environment variables here
+  REACT_APP_API_URL = "http://localhost:5000/api"  # Update with production backend URL
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Cache settings
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
