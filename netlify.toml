@@ -2,8 +2,8 @@
 # Build settings for Masterchecker (LinkShield) frontend
 
 [build]
-  # Change to frontend directory and run build
-  command = "npm run build --prefix frontend"
+  # Install dependencies in frontend and build
+  command = "cd frontend && npm install && npm run build"
   # Published directory
   publish = "frontend/build"
   # Node version
